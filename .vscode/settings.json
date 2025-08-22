@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"gameoflife.h": "c",
+		"mlx.h": "c",
+		"keysym.h": "c"
+	}
+}
