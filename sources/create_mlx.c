@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 00:37:33 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 01:20:30 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:21:10 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void create_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		end_game(game, MLX_ERROR, "MLX intialisation failed");
-	game->win = mlx_new_window(game->mlx, game->data.window_length, game->data.window_height, "cube");
+	game->win = mlx_new_window(game->mlx, game->data.window_length, game->data.window_height, WINDOW_NAME);
 	if (!game->win)
 		end_game(game, MLX_ERROR, "Window intialisation failed");
 	game->frame_image = mlx_new_image(game->mlx, game->data.window_length, game->data.window_height);

@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 18:29:36 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:00:35 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:05:21 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void initialise_values(t_game *game)
 	game->board = NULL;
 	game->frame_image = NULL;
 	game->data.tick = 0;
-	game->data.click_count = 0;
 	initialise_states(game);
 }

@@ -6,11 +6,28 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 18:37:41 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 02:45:38 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:15:03 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/GameOfLife.h"
+
+void reset_board(t_game *game)
+{
+	int j;
+	int i = 0;
+	while (i < game->data.board_height)
+	{
+		j = 0;
+		while (j < game->data.board_length)
+		{
+			game->board[i][j] = DEAD;
+			j++;
+		}
+		game->board[i][j] = 0;
+		i++;
+	}
+}
 
 void get_cell_size(t_game *game)
 {
@@ -47,17 +64,6 @@ void get_board_data(t_game *game, char **argv)
 	get_cell_size(game);
 }
 
-void fill_row(int length, char *row)
-{
-	int i = 0;
-	row[length] = 0;
-	while (i < length)
-	{
-		row[i] = DEAD;
-		i++;
-	}
-}
-
 void create_board(t_game *game, char **argv)
 {
 	get_board_data(game, argv);
@@ -75,8 +81,8 @@ void create_board(t_game *game, char **argv)
 		{
 			end_game(game, MALLOC_ERROR, "Malloc failed: board");
 		}
-		fill_row(game->data.board_length, game->board[i]);
 		game->board[i + 1] = NULL;
 		i++;
 	}
+	reset_board(game);
 }

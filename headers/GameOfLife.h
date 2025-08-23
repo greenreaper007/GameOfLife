@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:29:29 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:00:18 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:24:38 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@
 #include "../minilibx-linux/mlx.h"
 
 /* Graphic Data */
+#define WINDOW_NAME "Game Of Life"
 #define MAX_WINDOW_LENGTH 1920
 #define MAX_WINDOW_HEIGHT 1080
 #define MAX_CELL_SIZE 150
 #define MINIMUM_BOARD_LENGTH 3
-#define MAXIMUM_BOARD_LENGTH 100
+#define MAXIMUM_BOARD_LENGTH 250
 #define MINIMUM_BOARD_HEIGHT 3
-#define MAXIMUM_BOARD_HEIGHT 100
+#define MAXIMUM_BOARD_HEIGHT 250
 
 /* Board Data */
 #define DEAD '0'
@@ -47,6 +48,7 @@
 #define LEFT_CLICK 1
 #define RIGHT_CLICK 3
 #define SPACE_BAR 32
+#define R_KEY 114
 #define ESCAPE_KEY 65307
 
 /* Error code Data */
@@ -66,7 +68,6 @@ typedef struct s_data
 	int	dead_color_1;
 	int	dead_color_2;
 	int	tick;
-	int click_count;
 	int mouse_x;
 	int mouse_y;
 
@@ -101,6 +102,7 @@ void initialise_values(t_game *game);
 
 /* create_board.c */
 void create_board(t_game *game, char **argv);
+void reset_board(t_game *game);
 
 /* create_mlx.c */
 void create_mlx(t_game *game);
