@@ -6,7 +6,7 @@
 #    By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 14:30:13 by flturbou          #+#    #+#              #
-#    Updated: 2025/08/22 19:26:06 by flturbou         ###   ########.fr        #
+#    Updated: 2025/08/23 01:55:09 by flturbou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ MLX_LIB		=	$(addprefix $(MLX_PATH), $(MLX_FILE))
 MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
 
 C_FILE		=	main.c end_game.c initialise_values.c \
+				create_mlx.c game_loop.c draw_frame.c \
+				handle_keypress.c handle_mousepress.c \
 				create_board.c print_board.c
 
 SRC_DIR		=	./sources/

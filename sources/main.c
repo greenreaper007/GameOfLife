@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:38:12 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/22 19:27:32 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 02:46:42 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main(int argc, char **argv)
 	}
 	initialise_values(game);
 	create_board(game, argv);
-	print_board(game);
+	create_mlx(game);
+	//print_board(game);
+	mlx_loop(game->mlx);
 	end_game(game, SUCCESS, "Main function finished");
 }

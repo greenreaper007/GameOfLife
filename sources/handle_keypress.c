@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialise_values.c                                :+:      :+:    :+:   */
+/*   handle_keypress.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/22 18:29:36 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:00:35 by flturbou         ###   ########.fr       */
+/*   Created: 2025/08/23 00:54:17 by flturbou          #+#    #+#             */
+/*   Updated: 2025/08/23 01:14:49 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/GameOfLife.h"
 
-void initialise_states(t_game *game)
+int	handle_keyrelease(int keycode, t_game *game)
 {
-	game->states.is_running = 0;
-	game->states.is_left_clicking = 0;
-	game->states.is_right_clicking = 0;
+	if (keycode == ESCAPE_KEY)
+	{
+		end_game(game, SUCCESS, "Escape key closed");
+	}
+	if (keycode == SPACE_BAR)
+	{
+		game->states.is_running = !game->states.is_running;
+	}
+	return (0);
 }
 
-void initialise_values(t_game *game)
+int	handle_keypress(int keycode, t_game *game)
 {
-	game->mlx = NULL;
-	game->win = NULL;
-	game->board = NULL;
-	game->frame_image = NULL;
-	game->data.tick = 0;
-	game->data.click_count = 0;
-	initialise_states(game);
+	(void)keycode;
+	(void)game;
+	return (0);
 }

@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialise_values.c                                :+:      :+:    :+:   */
+/*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/22 18:29:36 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:00:35 by flturbou         ###   ########.fr       */
+/*   Created: 2025/08/23 00:35:24 by flturbou          #+#    #+#             */
+/*   Updated: 2025/08/23 02:54:54 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/GameOfLife.h"
 
-void initialise_states(t_game *game)
+int game_loop(t_game *game)
 {
-	game->states.is_running = 0;
-	game->states.is_left_clicking = 0;
-	game->states.is_right_clicking = 0;
-}
-
-void initialise_values(t_game *game)
-{
-	game->mlx = NULL;
-	game->win = NULL;
-	game->board = NULL;
-	game->frame_image = NULL;
-	game->data.tick = 0;
-	game->data.click_count = 0;
-	initialise_states(game);
+	update_mouse(game);
+	draw_frame(game);
+	if (game->states.is_running)
+	{
+		printf("tick : %d\n", game->data.tick);
+		game->data.tick++;
+	}
+	return (SUCCESS);
 }

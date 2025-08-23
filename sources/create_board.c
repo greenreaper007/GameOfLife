@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 18:37:41 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/22 19:26:27 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 02:45:38 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void get_cell_size(t_game *game)
 	game->data.window_length = game->data.cell_size * game->data.board_length;
 	game->data.window_height = game->data.cell_size * game->data.board_height;
 	game->data.alive_color = CELL_ALIVE_COLOR;
-	game->data.dead_color = CELL_DEAD_COLOR;
+	game->data.dead_color_1 = CELL_DEAD_COLOR_1;
+	game->data.dead_color_2 = CELL_DEAD_COLOR_2;
 }
 
 void get_board_data(t_game *game, char **argv)
@@ -67,7 +68,7 @@ void create_board(t_game *game, char **argv)
 	}
 	game->board[0] = NULL;
 	int i = 0;
-	while (i < game->data.board_length)
+	while (i < game->data.board_height)
 	{
 		game->board[i] = (char *)malloc((game->data.board_length + 1) * sizeof(char));
 		if (!game->board[i])
