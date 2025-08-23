@@ -3,6 +3,5 @@
 		"gameoflife.h": "c",
 		"mlx.h": "c",
 		"keysym.h": "c",
-		"handle_keypress.C": "cpp"
 	}
 }
