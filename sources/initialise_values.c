@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 18:29:36 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:05:21 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:58:23 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void initialise_values(t_game *game)
 	game->mlx = NULL;
 	game->win = NULL;
 	game->board = NULL;
+	game->board_copy = NULL;
 	game->frame_image = NULL;
 	game->data.tick = 0;
+	game->data.tick_time = 0;
 	initialise_states(game);
 }

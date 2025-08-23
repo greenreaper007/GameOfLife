@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:53:13 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 01:23:58 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 03:58:52 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void freeall(t_game *game)
 	if (game->board)
 	{
 		free_tab(game->board);
+	}
+	if (game->board_copy)
+	{
+		free_tab(game->board_copy);
 	}
 	if (game->frame_image)
 	{

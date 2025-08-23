@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 17:29:29 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:24:38 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 04:31:04 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 #define MAXIMUM_BOARD_LENGTH 250
 #define MINIMUM_BOARD_HEIGHT 3
 #define MAXIMUM_BOARD_HEIGHT 250
+#define SECOND 1000000
+#define TICK_RATE 10
+#define TICK_DELAY SECOND / TICK_RATE
 
 /* Board Data */
 #define DEAD '0'
@@ -49,6 +52,7 @@
 #define RIGHT_CLICK 3
 #define SPACE_BAR 32
 #define R_KEY 114
+#define Q_KEY 113
 #define ESCAPE_KEY 65307
 
 /* Error code Data */
@@ -68,6 +72,7 @@ typedef struct s_data
 	int	dead_color_1;
 	int	dead_color_2;
 	int	tick;
+	long tick_time;
 	int mouse_x;
 	int mouse_y;
 
@@ -88,6 +93,7 @@ typedef struct s_game
 	void		*frame_image;
 	int			*frame_data;
 	char		**board;
+	char		**board_copy;
 	t_data		data;
 	t_states	states;
 	
@@ -103,6 +109,7 @@ void initialise_values(t_game *game);
 /* create_board.c */
 void create_board(t_game *game, char **argv);
 void reset_board(t_game *game);
+void swap_boards(t_game *game);
 
 /* create_mlx.c */
 void create_mlx(t_game *game);
@@ -112,6 +119,9 @@ int game_loop(t_game *game);
 
 /* draw_frame.c */
 void draw_frame(t_game *game);
+
+/* run_tick.c */
+void run_tick(t_game *game);
 
 /* handle_keypress.c */
 int	handle_keypress(int keycode, t_game *game);

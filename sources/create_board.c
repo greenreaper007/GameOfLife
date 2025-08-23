@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 18:37:41 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:15:03 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 04:01:09 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,16 @@ void get_board_data(t_game *game, char **argv)
 	get_cell_size(game);
 }
 
-void create_board(t_game *game, char **argv)
+void swap_boards(t_game *game)
 {
-	get_board_data(game, argv);
+	char **temp;
+	temp = game->board_copy;
+	game->board_copy = game->board;
+	game->board = temp;
+}
+
+void allocate_board(t_game *game)
+{
 	game->board = (char **)malloc((game->data.board_height + 1) * sizeof(char *));
 	if (!game->board)
 	{
@@ -85,4 +92,12 @@ void create_board(t_game *game, char **argv)
 		i++;
 	}
 	reset_board(game);
+}
+
+void create_board(t_game *game, char **argv)
+{
+	get_board_data(game, argv);
+	allocate_board(game);
+	swap_boards(game);
+	allocate_board(game);
 }

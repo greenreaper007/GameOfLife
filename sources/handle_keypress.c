@@ -6,7 +6,7 @@
 /*   By: flturbou <flturbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 00:54:17 by flturbou          #+#    #+#             */
-/*   Updated: 2025/08/23 03:25:09 by flturbou         ###   ########.fr       */
+/*   Updated: 2025/08/23 04:31:19 by flturbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@ int	handle_keyrelease(int keycode, t_game *game)
 
 int	handle_keypress(int keycode, t_game *game)
 {
+	printf("press %d\n", keycode);
 	if (keycode == ESCAPE_KEY)
 	{
 		end_game(game, SUCCESS, "Escape key closed");
+	}
+	if (keycode == Q_KEY)
+	{
+		run_tick(game);
 	}
 	if (keycode == R_KEY)
 	{
