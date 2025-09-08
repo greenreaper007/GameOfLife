@@ -19,14 +19,21 @@ void mouse_position(t_game *game)
 
 void update_mouse(t_game *game)
 {
+	int board_x, board_y;
+
 	mouse_position(game);
+	board_x = game->data.mouse_x / game->data.cell_size;
+	board_y = game->data.mouse_y / game->data.cell_size;
+	if (board_x < 0 || board_x >= game->data.board_length
+			|| board_y < 0 || board_y >= game->data.board_height)
+		return ;
 	if (game->states.is_left_clicking)
 	{
-		game->board[game->data.mouse_y / game->data.cell_size][game->data.mouse_x / game->data.cell_size] = ALIVE;
+		game->board[board_y][board_x] = ALIVE;
 	}
 	if (game->states.is_right_clicking)
 	{
-		game->board[game->data.mouse_y / game->data.cell_size][game->data.mouse_x / game->data.cell_size] = DEAD;
+		game->board[board_y][board_x] = DEAD;
 	}
 }
 

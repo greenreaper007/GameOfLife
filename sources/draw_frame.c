@@ -14,6 +14,8 @@
 
 void draw_cell(int x, int y, int color, t_game *game)
 {
+	if (x < 0 || y < 0 || y >= game->data.window_height || x >= game->data.window_length)
+		return ;
 	x = x * game->data.cell_size;
 	y = y * game->data.cell_size * game->data.window_length;
 	int i = 0;
